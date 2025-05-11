@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Финансовые модели</title>
+  <meta name="description" content="Краткое описание страницы.">
+  <link rel="icon" href="images\Логотип.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <header>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+
+      <style>
+        a:hover {
+          color: white;
+        }
+
+        body.dark-theme a:hover {
+          color: black;
+        }
+      </style>
+
+      <a class="btn-m">☰Меню</a>
+
+      <a href="../login.html" class="btn-login">Вход</a>
+
+    </div>
+    <div id="menu" class="side-menu">
+      <ul>
+        <a href="index.html">Превью</a>
+        <h2>Обучение:</h2>
+        <a href="Что такое оценка.html">Что такое оценка</a>
+        <a href="Оценка бизнеса.html">Оценка бизнеса</a>
+        <a href="Оценка стартапа.html">Оценка стартапа</a>
+        <a href="Что такое фин модели.html">Что такое финансовые модели</a>
+        <a href="Существующие фин модели.html" class="active">Финансовые модели</a>
+        <h2>Инструменты:</h2>
+        <a href="Вычислитель бизнеса.html">Вычислитель бизнеса</a>
+        <a href="Вычислитель стартапа.html">Вычислитель стартапа</a>
+        <h2></h2><!--При прокрутки слова не были наполовину видны-->
+        <h2></h2><!--При прокрутки слова не были наполовину видны-->
+      </ul>
+    </div>
+
+    <div class="theme-switch">Тема
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </header>
+  <article>
+    <h1>Финансовые модели</h1>
+
+    <h2>Переход по моделям внутри документа:</h2>
+    <ul>
+      <li><a href="Фин модели\DCF.html">Модель дисконтированных денежных потоков (DCF — Discounted Cash Flow)</a></li>
+      <li><a href="Фин модели\CAPM.html">Модель оценки капитальных активов (CAPM — Capital Asset Pricing Model)</a></li>
+      <li><a href="Фин модели\IRR.html">Модель внутренней нормы доходности (IRR — Internal Rate of Return)</a></li>
+      <li><a href="Фин модели\ФАМА.html">Пятифакторная модель Фама-Френча</a></li>
+      <li><a href="Фин модели\GGM.html">Модель Гордона (Gordon Growth Model, GGM)</a></li>
+      <li><a href="Фин модели\SA.html">Анализ чувствительности (Sensitivity Analysis)</a></li>
+      <li><a href="Фин модели\Монте.html">Модель Монте-Карло</a></li>
+      <li><a href="Фин модели\Мультипликаторов.html">Модель мультипликаторов</a></li>
+      <li><a href="Фин модели\TSA.html">Временные ряды (Time Series Analysis)</a></li>
+      <li><a href="Фин модели\MPT.html">Маркопортфолио (Modern Portfolio Theory, MPT)</a></li>
+      <li><a href="Фин модели\GARCH.html">Модель GARCH (Generalized Autoregressive Conditional Heteroskedasticity)</a>
+      </li>
+      <li><a href="Фин модели\Binomial.html">Модели оценки опционов (Black-Scholes, Binomial Model)</a></li>
+    </ul>
+
+    <p>Финансовые модели используются для анализа, прогнозирования и принятия решений в различных аспектах экономики,
+      бизнеса и инвестирования. Наиболее популярные и широко используемые финансовые модели преведены по ссылкам выше.
+    </p>
+  </article>
+
+</body>
+
+</html>

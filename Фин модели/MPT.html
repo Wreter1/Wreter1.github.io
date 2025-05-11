@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Маркопортфолио</title>
+  <link rel="icon" href="../images\Логотип.png" type="image/png">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../script.js"></script>
+</head>
+
+<body>
+  <header>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+
+      <style>
+        a:hover {
+          color: white;
+        }
+
+        body.dark-theme a:hover {
+          color: black;
+        }
+      </style>
+
+      <a class="btn-m">☰Меню</a>
+
+      <a href="../login.html" class="btn-login">Вход</a>
+
+    </div>
+    <div id="menu" class="side-menu">
+      <ul>
+        <a href="../index.html">Превью</a>
+        <h2>Обучение:</h2>
+        <a href="../Что такое оценка.html">Что такое оценка</a>
+        <a href="../Оценка бизнеса.html">Оценка бизнеса</a>
+        <a href="../Оценка стартапа.html">Оценка стартапа</a>
+        <a href="../Что такое фин модели.html">Что такое финансовые модели</a>
+        <a href="../Существующие фин модели.html">Финансовые модели</a>
+        <h2>Инструменты:</h2>
+        <a href="../Вычислитель бизнеса.html">Вычислитель бизнеса</a>
+        <a href="../Вычислитель стартапа.html">Вычислитель стартапа</a>
+        <h2></h2><!--При прокрутки слова не были наполовину видны-->
+        <h2></h2><!--При прокрутки слова не были наполовину видны-->
+      </ul>
+    </div>
+
+    <div class="theme-switch">Тема
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </header>
+
+  <article>
+    <h1>Маркопортфолио (Modern Portfolio Theory, MPT)</h1>
+    <h2>Кратко</h2>
+    <p>Модель Гарри Марковица направлена на создание оптимального портфеля активов с минимальным риском при заданной
+      доходности. Основная идея — диверсификация и соотношение риска и прибыли.</p>
+    <h2>Подробно</h2>
+
+    <p><strong>Финансовая модель Марковица (Modern Portfolio Theory, MPT)</strong> — это основа современной теории
+      портфеля, разработанная Гарри Марковицем в 1952 году. Она фокусируется на оптимизации соотношения риска и
+      доходности через диверсификацию. Вот детальное описание модели:</p>
+
+    <h3>Основные концепции</h3>
+    <ul>
+      <li><strong>Доходность актива:</strong></li>
+      <p>Ожидаемая доходность актива (например, акции) — это средняя доходность, которую инвестор прогнозирует получить.
+        Обозначается как <i>E(R<sub>i</sub>)</i></p>
+
+      <li><strong>Риск (волатильность):</strong></li>
+      <p>Измеряется стандартным отклонением доходности актива <i>&sigma;<sub>i</sub></i></p>
+
+      <li><strong>Ковариация и корреляция:</strong></li>
+      <p>Показывают, как доходности двух активов <i>R<sub>i</sub></i> и <i>R<sub>j</sub></i> движутся вместе. Корреляция
+        <i>p<sub>ij</sub></i> нормирована в диапазоне от -1 до 1.
+      </p>
+
+      <li><strong>Диверсификация:</strong></li>
+      <p>Снижение риска за счет объединения активов с низкой или отрицательной корреляцией.</p>
+    </ul>
+
+    <h3>Математическая модель</h3>
+    <p><strong>Ожидаемая доходность портфеля:</strong></p>
+
+    <math display="block">
+      <mi>E(</mi>
+      <mmultiscripts>
+        <mi>R</mi>
+        <mn>p</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mi>)</mi>
+      <mo>=</mo>
+      <mrow>
+        <munderover>
+          <mo>∑</mo>
+          <mrow>
+            <mi>i</mi>
+            <mo>=</mo>
+            <mi>1</mi>
+          </mrow>
+          <mi>n</mi>
+        </munderover>
+        <mmultiscripts>
+          <mi>w</mi>
+          <mn>i</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mo>&times;</mo>
+        <mi>E(</mi>
+        <mmultiscripts>
+          <mi>R</mi>
+          <mn>i</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mi>)</mi>
+      </mrow>
+    </math>
+
+    <p><strong><i>w<sub>i</sub></i></strong> — доля капитала, вложенная в актив <i>i</i></p>
+    <p><strong><i>∑ w<sub>i</sub></i> = 1</strong></p>
+
+    <p><strong>Риск портфеля (дисперсия):</strong></p>
+
+    <math display="block">
+      <mmultiscripts>
+        <mi>&#963;</mi>
+        <mn>p</mn>
+        <mn>2</mn>
+      </mmultiscripts>
+      <mo>=</mo>
+      <mrow>
+        <munderover>
+          <mo>∑</mo>
+          <mrow>
+            <mi>i</mi>
+            <mo>=</mo>
+            <mi>1</mi>
+          </mrow>
+          <mi>n</mi>
+        </munderover>
+        <munderover>
+          <mo>∑</mo>
+          <mrow>
+            <mi>j</mi>
+            <mo>=</mo>
+            <mi>1</mi>
+          </mrow>
+          <mi>n</mi>
+        </munderover>
+        <mmultiscripts>
+          <mi>w</mi>
+          <mn>i</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mmultiscripts>
+          <mi>w</mi>
+          <mn>j</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mmultiscripts>
+          <mi>&#963;</mi>
+          <mn>ij</mn>
+          <mn></mn>
+        </mmultiscripts>
+      </mrow>
+    </math>
+
+    <p><strong><i>&#963;<sub>ij</sub> = p<sub>ij</sub> &times; &#963;<sub>i</sub> &times;
+          &#963;<sub>j</sub></i></strong> ковариация между активами i и j.</p>
+
+    <p><strong>Для двух активов формула упрощается:</strong></p>
+    <math display="block">
+      <mmultiscripts>
+        <mi>&#963;</mi>
+        <mn>p</mn>
+        <mn>2</mn>
+      </mmultiscripts>
+      <mo>=</mo>
+      <mmultiscripts>
+        <mi>w</mi>
+        <mn>1</mn>
+        <mn>2</mn>
+      </mmultiscripts>
+      <mmultiscripts>
+        <mi>&#963;</mi>
+        <mn>1</mn>
+        <mn>2</mn>
+      </mmultiscripts>
+      <mo>+</mo>
+      <mmultiscripts>
+        <mi>w</mi>
+        <mn>2</mn>
+        <mn>2</mn>
+      </mmultiscripts>
+      <mmultiscripts>
+        <mi>&#963;</mi>
+        <mn>2</mn>
+        <mn>2</mn>
+      </mmultiscripts>
+      <mo>+</mo>
+      <mi>2</mi>
+      <mmultiscripts>
+        <mi>w</mi>
+        <mn>1</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mmultiscripts>
+        <mi>w</mi>
+        <mn>2</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mmultiscripts>
+        <mi>p</mi>
+        <mn>12</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mmultiscripts>
+        <mi>&#963;</mi>
+        <mn>1</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mmultiscripts>
+        <mi>&#963;</mi>
+        <mn>2</mn>
+        <mn></mn>
+      </mmultiscripts>
+    </math>
+
+    <h3>Эффективная граница (Efficient Frontier)</h3>
+    <p>Это множество портфелей, которые:</p>
+    <ul>
+      <li>Максимизируют доходность для заданного уровня риска.</li>
+      <li>Минимизируют риск для заданной доходности.</li>
+    </ul>
+    <p><strong>Оптимальный портфель</strong> выбирается инвестором на основе его толерантности к риску (кривые
+      безразличия).</p>
+
+    <h3>Включение безрискового актива</h3>
+    <ul>
+      <li><strong>Безрисковый актив</strong></li>
+      <p>(Например, гособлигации) имеет доходность <i>R<sub>f</sub></i> и нулевую волатильность <i>&sigma;<sub>f</sub> =
+          0</i>.</p>
+
+      <li><strong>Капитальная рыночная линия (CML):</strong></li>
+      <p>Прямая, соединяющая безрисковый актив с рыночным портфелем (M) на эффективной границе. Уравнение CML:</p>
+      <math display="block">
+        <mi>E(</mi>
+        <mmultiscripts>
+          <mi>R</mi>
+          <mn>p</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mi>)</mi>
+        <mo>=</mo>
+        <mmultiscripts>
+          <mi>R</mi>
+          <mn>f</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mo>+</mo>
+        <mfrac>
+          <mrow>
+            <mi>E(</mi>
+            <mmultiscripts>
+              <mi>R</mi>
+              <mn>M</mn>
+              <mn></mn>
+            </mmultiscripts>
+            <mi>)</mi>
+            <mo>&minus;</mo>
+            <mmultiscripts>
+              <mi>R</mi>
+              <mn>f</mn>
+              <mn></mn>
+            </mmultiscripts>
+          </mrow>
+          <msup>
+            <mmultiscripts>
+              <mi>&sigma;</mi>
+              <mn>M</mn>
+              <mn></mn>
+            </mmultiscripts>
+          </msup>
+        </mfrac>
+        <mo>&times;</mo>
+        <mmultiscripts>
+          <mi>&sigma;</mi>
+          <mn>p</mn>
+          <mn></mn>
+        </mmultiscripts>
+      </math>
+
+      <li><strong>Рыночный портфель (M):</strong></li>
+      <p>Точка касания CML и эффективной границы. Считается оптимальным для всех инвесторов.</p>
+    </ul>
+
+    <h3>Пример расчета для двух активов</h3>
+    <p><strong>Пусть:</strong></p>
+    <ul>
+      <li>Актив A: <i>E(R<sub>A</sub>) = 10%</i>, <i>&sigma;<sub>A</sub> = 15%</i></li>
+      <li>Актив B: <i>E(R<sub>B</sub>) = 5%</i>, <i>&sigma;<sub>B</sub> = 5%</i></li>
+      <li>Корреляция: <i>p<sub>AB</sub> = &minus;0.2</i></li>
+    </ul>
+
+    <p><strong>Портфель с весами:</strong> <i>w<sub>A</sub> = 60%</i>, <i>w<sub>B</sub> = 40%</i>:</p>
+    <ul>
+      <li><strong>Ожидаемая доходность:</strong></li>
+      <math display="block">
+        <mi>0.6</mi>
+        <mo>&times;</mo>
+        <mi>10%</mi>
+        <mo>+</mo>
+        <mi>0.4</mi>
+        <mo>&times;</mo>
+        <mi>5%</mi>
+        <mo>=</mo>
+        <mi>8%</mi>
+      </math>
+
+      <li><strong>Риск:</strong></li>
+      <math display="block">
+        <msqrt>
+          <mmultiscripts>
+            <mi>0.6</mi>
+            <mn></mn>
+            <mn>2</mn>
+          </mmultiscripts>
+          <mo>&times;</mo>
+          <mmultiscripts>
+            <mi>0.15</mi>
+            <mn></mn>
+            <mn>2</mn>
+          </mmultiscripts>
+          <mo>+</mo>
+          <mmultiscripts>
+            <mi>0.4</mi>
+            <mn></mn>
+            <mn>2</mn>
+          </mmultiscripts>
+          <mo>&times;</mo>
+          <mmultiscripts>
+            <mi>0.05</mi>
+            <mn></mn>
+            <mn>2</mn>
+          </mmultiscripts>
+          <mo>+</mo>
+          <mi>2</mi>
+          <mo>&times;</mo>
+          <mi>0.6</mi>
+          <mo>&times;</mo>
+          <mi>0.4</mi>
+          <mo>&times;</mo>
+          <mi>(-0.2)</mi>
+          <mo>&times;</mo>
+          <mi>0.15</mi>
+          <mo>&times;</mo>
+          <mi>0.05</mi>
+        </msqrt>
+        <mo>&asymp;</mo>
+        <mi>8.7%</mi>
+      </math>
+    </ul>
+
+    <h3>Оптимизация портфеля</h3>
+    <ul>
+      <li><strong>Минимизация риска:</strong></li>
+      <p><i>min &sigma;<sub>p</sub><sup>2</sup></i></p>
+      <p>При условии, <i>E(R<sub>p</sub>)</i> = целевая доходность, <i>∑ w<sub>i</sub></i> = 1</p>
+
+      <li><strong>Максимизация доходности:</strong></li>
+      <p><i>max E(R<sub>p</sub>)</i></p>
+      <p>При условии, <i>&sigma;<sub>p</sub></i> = целевой риск</p>
+    </ul>
+
+    <h3>Ограничения MPT</h3>
+    <ol>
+      <li><strong>Нормальное распределение доходностей:</strong></li>
+      <p>Реальные доходности часто имеют "тяжелые хвосты".</p>
+
+      <li><strong>Стабильность параметров:</strong></li>
+      <p>Ковариации и доходности меняются со временем.</p>
+
+      <li><strong>Игнорирование транзакционных издержек и налогов.</strong></li>
+
+      <li><strong>Рациональность инвесторов:</strong></li>
+      <p>На практике решения могут быть эмоциональными.</p>
+    </ol>
+
+    <h3>Практическое применение</h3>
+    <ul>
+      <li>Используется для построения сбалансированных портфелей (акции, облигации, золото).</li>
+      <li>Лежит в основе ETF и стратегий пассивного инвестирования.</li>
+      <li>Интегрирована в алгоритмы робо-эдвайзеров (например, Betterment, Wealthfront).</li>
+    </ul>
+
+    <h3>Заключение</h3>
+    <p>MPT заложила основы диверсификации и количественной оценки риска. Несмотря на ограничения, она остается ключевым
+      инструментом для инвесторов, стремящихся к оптимизации портфеля. Однако в современных условиях её часто дополняют
+      поведенческой экономикой и машинным обучением.</p>
+
+  </article>
+
+</body>
+
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Временные ряды</title>
+  <link rel="icon" href="../images\Логотип.png" type="image/png">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../script.js"></script>
+</head>
+
+<body>
+  <header>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+
+      <style>
+        a:hover {
+          color: white;
+        }
+
+        body.dark-theme a:hover {
+          color: black;
+        }
+      </style>
+
+      <a class="btn-m">☰Меню</a>
+
+      <a href="../login.html" class="btn-login">Вход</a>
+
+    </div>
+    <div id="menu" class="side-menu">
+      <ul>
+        <a href="../index.html">Превью</a>
+        <h2>Обучение:</h2>
+        <a href="../Что такое оценка.html">Что такое оценка</a>
+        <a href="../Оценка бизнеса.html">Оценка бизнеса</a>
+        <a href="../Оценка стартапа.html">Оценка стартапа</a>
+        <a href="../Что такое фин модели.html">Что такое финансовые модели</a>
+        <a href="../Существующие фин модели.html">Финансовые модели</a>
+        <h2>Инструменты:</h2>
+        <a href="../Вычислитель бизнеса.html">Вычислитель бизнеса</a>
+        <a href="../Вычислитель стартапа.html">Вычислитель стартапа</a>
+        <h2></h2><!--При прокрутки слова не были наполовину видны-->
+        <h2></h2><!--При прокрутки слова не были наполовину видны-->
+      </ul>
+    </div>
+
+    <div class="theme-switch">Тема
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </header>
+
+  <article>
+    <h1>Временные ряды (Time Series Analysis)</h1>
+    <h2>Кратко</h2>
+    <p>Модели временных рядов используются для анализа исторических данных и прогнозирования будущего, например, для
+      прогнозов продаж, спроса, цен на акции и т.д. Среди методов временных рядов выделяются ARIMA, GARCH, VAR и другие.
+    </p>
+    <h2>Подробно</h2>
+
+    <p><strong>Временные ряды</strong> — это последовательность данных, измеренных через равные промежутки времени. В
+      финансах они используются для анализа и прогнозирования таких показателей, как цены акций, курсы валют, объемы
+      торгов, инфляция и другие экономические индикаторы.</p>
+
+    <h3>Основные компоненты временного ряда</h3>
+
+    <ol>
+      <li><strong>Тренд (Trend)</strong></li>
+      <p>Долгосрочное направление данных (рост, падение или стагнация).</p>
+      <p><strong>Пример:</strong> Устойчивый рост стоимости акций компании на протяжении 5 лет.</p>
+
+      <li><strong>Сезонность (Seasonality)</strong></li>
+      <p>Повторяющиеся паттерны в фиксированные периоды (день, месяц, квартал).</p>
+      <p><strong>Пример:</strong> Рост продаж ритейлеров в декабре из-за праздников.</p>
+
+      <li><strong>Цикличность (Cyclicity)</strong></li>
+      <p>Колебания без фиксированной периодичности, связанные с экономическими циклами. </p>
+      <p><strong>Пример:</strong> Спад рынка недвижимости каждые 7–10 лет.</p>
+
+      <li><strong>Шум (Noise)</strong></li>
+      <p>Случайные колебания, не объясняемые трендом, сезонностью или цикличностью.</p>
+
+    </ol>
+
+    <h2>Методы анализа временных рядов в финансах</h2>
+    <p>Разложение ряда на компоненты:</p>
+
+    <h3>1. Декомпозиция временного ряда</h3><br>
+    <math display="block">
+      <mi>Y(t)</mi>
+      <mo>=</mo>
+      <mi>Trend(t)</mi>
+      <mo>+</mo>
+      <mi>Seasonality(t)</mi>
+      <mo>+</mo>
+      <mi>Noise(t)</mi>
+    </math><br>
+    <p><strong>Инструменты:</strong> STL (Seasonal-Trend decomposition using LOESS), метод Хольта-Винтерса.</p>
+
+    <h3>2. Модели ARIMA (Autoregressive Integrated Moving Average)</h3>
+
+    <p>Используется для несезонных стационарных рядов.</p>
+    <ul>
+      <li><strong>AR (Autoregression):</strong></li>
+      <p>Зависимость от предыдущих значений.</p>
+      <math display="block">
+        <mi>Y(t)</mi>
+        <mo>=</mo>
+        <mi>c</mi>
+        <mo>+</mo>
+        <mmultiscripts>
+          <mi>&#966;</mi>
+          <mn>1</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mi>Y(t - 1)</mi>
+        <mo>+</mo>
+        <mmultiscripts>
+          <mi>&#966;</mi>
+          <mn>2</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mi>Y(t - 2)</mi>
+        <mo>+</mo>
+        <mi>...</mi>
+        <mo>+</mo>
+        <mmultiscripts>
+          <mi>&#966;</mi>
+          <mn>p</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mi>Y(t - p)</mi>
+        <mo>+</mo>
+        <mmultiscripts>
+          <mi>ε</mi>
+          <mn>t</mn>
+          <mn></mn>
+        </mmultiscripts>
+      </math>
+
+      <p><strong>Y(t)</strong> — текущее значение ряда</p>
+      <p><strong><i>&#966;<sub>1</sub>,&#966;<sub>2</sub>,...,&#966;<sub>p</sub></i></strong> — коэффициенты
+        авторегрессии</p>
+      <p><strong>p</strong> — порядок авторегрессии (сколько прошлых значений учитывается)</p>
+      <p><strong><i>ε<sub>t</sub></i></strong> — ошибка (белый шум)</p>
+      <p><strong>c</strong> — константа</p>
+
+      <li><strong>MA (Moving Average):</strong></li>
+      <p>Зависимость от прошлых ошибок.</p>
+      <math display="block">
+        <mi>Y(t)</mi>
+        <mo>=</mo>
+        <mi>c</mi>
+        <mo>+</mo>
+        <mmultiscripts>
+          <mi>ε</mi>
+          <mn>t</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mo>+</mo>
+        <mmultiscripts>
+          <mi>&#952;</mi>
+          <mn>1</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mmultiscripts>
+          <mi>ε</mi>
+          <mn>t - 1</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mo>+</mo>
+        <mmultiscripts>
+          <mi>&#952;</mi>
+          <mn>1</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mmultiscripts>
+          <mi>ε</mi>
+          <mn>t - 2</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mo>+</mo>
+        <mi>...</mi>
+        <mo>+</mo>
+        <mmultiscripts>
+          <mi>&#952;</mi>
+          <mn>q</mn>
+        </mmultiscripts>
+        <mmultiscripts>
+          <mi>ε</mi>
+          <mn>t - q</mn>
+          <mn></mn>
+        </mmultiscripts>
+      </math>
+      <p><strong><i>&#952;<sub>1</sub>,&#952;<sub>2</sub>,...,&#952;<sub>q</sub></i></strong> — коэффициенты скользящего
+        среднего</p>
+      <p><strong><i>ε<sub>t - 1</sub>ε<sub>t - 2</sub>,...</i></strong> — ошибки в предыдущие моменты времени
+      </p>
+      <p><strong>q</strong> — порядок скользящего среднего (сколько прошлых ошибок учитывается)</p>
+
+      <li><strong>I (Integrated):</strong></li>
+      <p>Количество дифференцирований для стационарности.</p>
+      <math display="block">
+        <mi>Y&#8242;(t)</mi>
+        <mo>=</mo>
+        <mi>Y(t)</mi>
+        <mo>&minus;</mo>
+        <mi>Y(t - 1)</mi>
+      </math>
+    </ul>
+
+    <p><strong>Параметры:</strong> ARIMA(p, d, q):</p>
+    <p><strong>p</strong> — порядок авторегрессии (сколько прошлых значений учитывается)</p>
+    <p><strong>d</strong> — степень дифференцирования</p>
+    <p><strong>q</strong> — порядок скользящего среднего (сколько прошлых ошибок учитывается)</p>
+
+
+
+    <h3>3. Модели GARCH (Generalized Autoregressive Conditional Heteroskedasticity)</h3>
+    <p>Используется для прогнозирования волатильности (например, рисков на фондовом рынке).</p>
+
+    <math display="block">
+      <mmultiscripts>
+        <mi>&#963;</mi>
+        <mn>t</mn>
+        <mn>2</mn>
+      </mmultiscripts>
+      <mo>=</mo>
+      <mmultiscripts>
+        <mi>&#945;</mi>
+        <mn>0</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mo>+</mo>
+      <mmultiscripts>
+        <mi>&#945;</mi>
+        <mn>1</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mmultiscripts>
+        <mi>&#949;</mi>
+        <mn>t - 1 </mn>
+        <mn>2</mn>
+      </mmultiscripts>
+      <mo>+</mo>
+      <mmultiscripts>
+        <mi>&#946;</mi>
+        <mn>1</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mmultiscripts>
+        <mi>&#963;</mi>
+        <mn>t - 1 </mn>
+        <mn>2</mn>
+      </mmultiscripts>
+    </math>
+
+    <p><i>&#963;<sup>2</sup><sub>t - 1</sub></i> — условная дисперсия (волатильность) в момент времени t.</p>
+    <p><i>&#945;</i> — это один из основных параметров GARCH-модели, который определяет степень AUTOКОРРЕЛЯЦИИ модели.
+    </p>
+    <p><i>&#946;</i> — это вклад лаговой волатильности.</p>
+    <p>Для рассчитывания параметров <i>&#945;</i> и <i>&#946;</i> обычно используется алгоритм МАКСИМ.</p>
+
+    <h3>4. Экспоненциальное сглаживание </h3>
+    <ul>
+      <li><strong>Простое экспоненциальное сглаживание (SES):</strong></li>
+      <p>Подходит для данных без тренда и сезонности.</p>
+
+      <li><strong>Метод Хольта-Винтерса:</strong></li>
+      <p>Учитывает тренд и сезонность.</p>
+      <math display="block">
+        <mi>Y(t)</mi>
+        <mo>=</mo>
+        <mi>(Level + Trend)</mi>
+        <mo>&times</mo>
+        <mi>Seasonality</mi>
+      </math>
+    </ul>
+
+    <h3>5. Машинное обучение</h3>
+    <ul>
+      <li><strong>LSTM (Long Short-Term Memory):</strong></li>
+      <p>Рекуррентные нейросети для долгосрочных зависимостей.</p>
+      <li><strong>Prophet (Meta):</strong></li>
+      <p>Модель с автоматическим учетом трендов и сезонности.</p>
+      <li><strong>XGBoost/LightGBM:</strong></li>
+      <p>Градиентный бустинг для многомерных временных рядов.</p>
+    </ul>
+
+    <h2>Этапы построения модели:</h2>
+    <ol>
+      <li><strong>Сбор данных</strong></li>
+      <p>Пример: Ежедневные котировки акций (Open, High, Low, Close, Volume).</p>
+
+      <li><strong>Визуализация</strong></li>
+      <p>Построение графиков, выявление трендов и сезонности.</p>
+
+      <li><strong>Проверка на стационарность</strong></li>
+      <p><strong>Тест Дики-Фуллера (ADF):</strong> Если p-value &#60; 0.05, ряд стационарен.</p>
+      <p><strong>Преобразования:</strong> Логарифмирование, дифференцирование.</p>
+
+      <li><strong>Выбор модели</strong></li>
+      <p>На основе ACF/PACF-графиков или автоматического подбора (AutoARIMA).</p>
+
+      <li><strong>Обучение модели</strong></li>
+      <p>Разделение данных на тренировочную и тестовую выборки.</p>
+
+      <li><strong>Оценка качества</strong></li>
+      <p>Метрики: MAE, RMSE, MAPE.</p>
+
+      <li><strong>Прогнозирование</strong></li>
+      <p>Предсказание будущих значений на несколько шагов вперед.</p>
+    </ol>
+
+    <h3>Пример: Прогнозирование цены акций с помощью ARIMA</h3>
+    <ol>
+      <li><strong>Загрузка данных:</strong></li>
+      <p>Исторические данные Apple AAPL за 5 лет.</p>
+
+      <li><strong>Визуализация:</strong></li>
+      <p>График цен закрытия с явным восходящим трендом.</p>
+
+      <li><strong>Стационарность:</strong></li>
+      <p>После первого дифференцирования d=1 ряд становится стационарным ADF p-value = 0.01.</p>
+
+      <li><strong>Подбор параметров:</strong></li>
+      <p>ACF/PACF указывают на p=1, q=1.</p>
+
+      <li><strong>Модель ARIMA(1,1,1):</strong></li>
+      <p>Обучение на 80% данных.</p>
+
+      <li><strong>Прогноз:</strong></li>
+      <p>Предсказание цены на следующие 30 дней.</p>
+
+      <li><strong>Оценка:</strong></li>
+      <p>RMSE = 2.5$ на тестовой выборке.</p>
+    </ol>
+
+    <h3>Проблемы и ограничения</h3>
+    <ul>
+      <li><strong>Нестационарность:</strong></li>
+      <p>Требует преобразований (дифференцирование, логарифмирование).</p>
+
+      <li><strong>Шумы:</strong></li>
+      <p>Сложность прогнозирования в условиях высокой волатильности.</p>
+
+      <li><strong>Выбор модели:</strong></li>
+      <p>Риск переобучения или недообучения.</p>
+
+      <li><strong>Экзогенные факторы:</strong></li>
+      <p>Непредсказуемые события (кризисы, политические изменения).</p>
+    </ul>
+
+    <h3>Преимущества и недостатки</h3>
+    <table>
+      <tr>
+        <td><strong>Преимущества</strong></td>
+        <td><strong>Недостатки</strong></td>
+      </tr>
+      <tr>
+        <td>Учет временных зависимостей</td>
+        <td>Сложность работы с нестационарными рядами</td>
+      </tr>
+      <tr>
+        <td>Прогнозирование на основе истории</td>
+        <td>Чувствительность к выбросам и шумам</td>
+      </tr>
+      <tr>
+        <td>Широкий выбор моделей (ARIMA, GARCH)</td>
+        <td>Требует большого объема данных</td>
+      </tr>
+    </table>
+
+    <h3>Заключение</h3>
+    <p>Анализ временных рядов — ключевой инструмент в финансах для прогнозирования цен, управления рисками и
+      стратегического планирования. Однако его эффективность зависит от качества данных, правильного выбора модели и
+      учета внешних факторов. Современные методы (например, LSTM) позволяют работать с нелинейными зависимостями, но
+      классические подходы (ARIMA, GARCH) остаются востребованными из-за интерпретируемости.</p>
+
+  </article>
+
+</body>
+
+</html>

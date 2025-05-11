@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вычислитель стартапа</title>
+  <meta name="description" content="Краткое описание страницы.">
+  <link rel="icon" href="images\Логотип.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="Стартап.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <header>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+
+      <style>
+        a:hover {
+          color: white;
+        }
+
+        body.dark-theme a:hover {
+          color: black;
+        }
+      </style>
+
+      <a class="btn-m">☰Меню</a>
+
+      <a href="login.html" class="btn-login">Вход</a>
+
+    </div>
+    <div id="menu" class="side-menu">
+      <ul>
+        <a href="index.html">Превью</a>
+        <h2>Обучение:</h2>
+        <a href="Что такое оценка.html">Что такое оценка</a>
+        <a href="Оценка бизнеса.html">Оценка бизнеса</a>
+        <a href="Оценка стартапа.html">Оценка стартапа</a>
+        <a href="Что такое фин модели.html">Что такое финансовые модели</a>
+        <a href="Существующие фин модели.html">Финансовые модели</a>
+        <h2>Инструменты:</h2>
+        <a href="Вычислитель бизнеса.html">Вычислитель бизнеса</a>
+        <a href="Вычислитель стартапа.html" class="active">Вычислитель стартапа</a>
+        <h2></h2><!--При прокрутки слова не были наполовину видны-->
+        <h2></h2><!--При прокрутки слова не были наполовину видны-->
+      </ul>
+    </div>
+
+    <div class="theme-switch">Тема
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </header>
+  <article>
+    <h1>Оценка стоимости стартапа</h1><br>
+
+    <h2>Ставка дисконтирования</h2>
+    <label>Введите ставку дисконтирования за ваш бизнес: <input type="number" id="discount_3" value="0"
+        required></label>
+
+    <h2>Метод Беркуса</h2>
+    <h4>Во сколько вы оцениваете приведённые ниже комоненты?</h4>
+    <label>Бизнес-идея: <input type="number" id="business_idea_1" value="0" required></label>
+    <label>Прототип продукта: <input type="number" id="product_1" value="0" required></label>
+    <label>Команда: <input type="number" id="team_1" value="0" required></label>
+    <label>Партнёры: <input type="number" id="partners_1" value="0" required></label>
+    <label>Наличие продукта и продаж: <input type="number" id="availability_1" value="0" required></label>
+
+    <h2>Метод скоринга</h2>
+    <h4>Для этого метода надо будет сравнить ваш стартап с самым лучшим существующим аналогом</h4>
+    <h4>Вы должны знать его стоимость</h4>
+    <h4>Для каждого компонента из вашего стартапа вводите вес от 5 до 30 процентов</h4>
+    <h4>Для аналога вводите вес в процентах как сами считаете</h4>
+    <label>Ваша команда: <input type="number" id="team_21" value="0" required></label>
+    <label>Команда аналога: <input type="number" id="team_22" value="0" required></label>
+    <label>Ваш потенциал: <input type="number" id="potential_21" value="0" required></label>
+    <label>Потенциал аналога: <input type="number" id="potential_22" value="0" required></label>
+    <label>Ваш продукт: <input type="number" id="product_21" value="0" required></label>
+    <label>Продукт аналога: <input type="number" id="product_22" value="0" required></label>
+    <label>Ваши конкуренты: <input type="number" id="competitors_21" value="0" required></label>
+    <label>Конкуренты аналога: <input type="number" id="competitors_22" value="0" required></label>
+    <label>Ваши продажи: <input type="number" id="sales_21" value="0" required></label>
+    <label>Продажи аналога: <input type="number" id="sales_22" value="0" required></label>
+    <label>Ваши потребности финансировании: <input type="number" id="needs_21" value="0" required></label>
+    <label>Потребности финансировании аналога: <input type="number" id="needs_22" value="0" required></label>
+    <label>Ваши не учтённые выше детали: <input type="number" id="other_21" value="0" required></label>
+    <label>Не учтённые выше детали аналога: <input type="number" id="other_22" value="0" required></label>
+    <label>Стоимость аналога: <input type="number" id="cost_of_analogue_2" value="0" required></label>
+
+    <h2>Метод сравнимых операций</h2>
+    <h4>Для этого метода вам понадобится расмотреть 3 компании аналога</h4>
+    <label>Цена аналога 1: <input type="number" id="company_cost_31" value="0" required></label>
+    <label>Цена аналога 2: <input type="number" id="company_cost_32" value="0" required></label>
+    <label>Цена аналога 3: <input type="number" id="company_cost_33" value="0" required></label>
+    <label>Выручка аналога 1: <input type="number" id="company_profit_31" value="1" required></label>
+    <label>Выручка аналога 2: <input type="number" id="company_profit_32" value="1" required></label>
+    <label>Выручка аналога 3: <input type="number" id="company_profit_33" value="1" required></label>
+    <label>Количество клиентов аналога 1: <input type="number" id="company_user_31" value="1" required></label>
+    <label>Количество клиентов аналога 2: <input type="number" id="company_user_32" value="1" required></label>
+    <label>Количество клиентов аналога 3: <input type="number" id="company_user_33" value="1" required></label>
+    <label>Среднее цена аналогов по отросли: <input type="number" id="mid_cost_3" value="0" required></label>
+    <label>Средее выручка аналогов по отросли: <input type="number" id="mid_profit_3" value="1" required></label>
+    <label>Среднее количество клиентов по отросли: <input type="number" id="mid_user_3" value="1" required></label>
+    <label>Какая ваша выручка: <input type="number" id="user_profit_3" value="0" required></label>
+    <label>Какое ваше количество клиентов: <input type="number" id="user_user_3" value="0" required></label>
+
+    <h2>Метод суммированных факторов риска</h2>
+    <h4>Приведённые ниже факторы вы можете оценивать только на: -2, -1, 0, 1, 2</h4>
+    <p>2, очень позитивно для развития компани</p>
+    <p>1, позитивно</p>
+    <p>0, нейтрально</p>
+    <p>-1, негативно</p>
+    <p>-2, очень негативно</p>
+    <label>Управление: <input type="number" id="management_4" value="0" required></label>
+    <label>Стадия бизнеса: <input type="number" id="business_stage_4" value="0" required></label>
+    <label>Политический риск: <input type="number" id="political_risk_4" value="0" required></label>
+    <label>Производственный риск: <input type="number" id="production_risk_4" value="0" required></label>
+    <label>Риски в области продаж и маркетинга: <input type="number" id="risk_sales_4" value="0" required></label>
+    <label>Риск финансирования, привлечения капитала: <input type="number" id="financing_risk_4" value="0"
+        required></label>
+    <label>Риск конкуренции: <input type="number" id="competition_risk_4" value="0" required></label>
+    <label>Технологический риск: <input type="number" id="technological_risk_4" value="0" required></label>
+    <label>Риск судебного разбирательства: <input type="number" id="risk_ship_4" value="0" required></label>
+    <label>Международный риск: <input type="number" id="international_risk_4" value="0" required></label>
+    <label>Репутационный риск: <input type="number" id="reputation_risk_4" value="0" required></label>
+    <label>Потенциальный прибыльный выход: <input type="number" id="potential_4" value="0" required></label>
+
+    <h2>Метод дисконтированных денежных потоков</h2>
+    <h4>Денежный поток - это движение денег за отчётный период</h4>
+    <h4>То есть сумма платежей и поступлений</h4>
+    <h4>Спрогнозируйте денежный поток на 3 года</h4>
+    <label>Денежный поток за 1 год: <input type="number" id="cash_flow_5_1" value="0" required></label>
+    <label>Денежный поток за 2 год: <input type="number" id="cash_flow_5_2" value="0" required></label>
+    <label>Денежный поток за 3 год: <input type="number" id="cash_flow_5_3" value="0" required></label>
+
+    <button onclick="calculateBusinessValue()">Подсчитать стоимости стартапа</button>
+    <div id="result"></div>
+  </article>
+</body>
+
+</html>

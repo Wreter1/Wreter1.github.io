@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Модели оценки опционов</title>
+  <link rel="icon" href="../images\Логотип.png" type="image/png">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../script.js"></script>
+</head>
+
+<body>
+  <header>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+
+      <style>
+        a:hover {
+          color: white;
+        }
+
+        body.dark-theme a:hover {
+          color: black;
+        }
+      </style>
+
+      <a class="btn-m">☰Меню</a>
+
+      <a href="../login.html" class="btn-login">Вход</a>
+
+    </div>
+    <div id="menu" class="side-menu">
+      <ul>
+        <a href="../index.html">Превью</a>
+        <h2>Обучение:</h2>
+        <a href="../Что такое оценка.html">Что такое оценка</a>
+        <a href="../Оценка бизнеса.html">Оценка бизнеса</a>
+        <a href="../Оценка стартапа.html">Оценка стартапа</a>
+        <a href="../Что такое фин модели.html">Что такое финансовые модели</a>
+        <a href="../Существующие фин модели.html">Финансовые модели</a>
+        <h2>Инструменты:</h2>
+        <a href="../Вычислитель бизнеса.html">Вычислитель бизнеса</a>
+        <a href="../Вычислитель стартапа.html">Вычислитель стартапа</a>
+        <h2></h2><!--При прокрутки слова не были наполовину видны-->
+        <h2></h2><!--При прокрутки слова не были наполовину видны-->
+      </ul>
+    </div>
+
+    <div class="theme-switch">Тема
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </header>
+
+  <article>
+    <h1>Модели оценки опционов (Black-Scholes, Binomial Model)</h1>
+    <h2>Кратко</h2>
+    <p>Black-Scholes-Merton — одна из самых известных моделей для оценки справедливой стоимости европейских опционов.
+      Биномная модель применяется для более сложных опционов с различными условиями исполнения, включая американского
+      типа.</p>
+    <h2>Подробно</h2>
+
+    <h2>Модель Блэка-Шоулза (Black-Scholes Model)</h2>
+
+    <ul>Формула для оценки опционов:
+      <li>Call-опцион:</li>
+      <math display="block">
+        <mi>C</mi>
+        <mo>=</mo>
+        <mmultiscripts>
+          <mi>S</mi>
+          <mn>0</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mo>&times;</mo>
+        <mi>N(</mi>
+        <mmultiscripts>
+          <mi>d</mi>
+          <mn>1</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mi>)</mi>
+        <mo>&minus;</mo>
+        <mi>K</mi>
+        <mo>&times;</mo>
+        <mmultiscripts>
+          <mi>e</mi>
+          <mn></mn>
+          <mn>-rT</mn>
+        </mmultiscripts>
+        <mo>&times;</mo>
+        <mi>N(</mi>
+        <mmultiscripts>
+          <mi>d</mi>
+          <mn>2</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mi>)</mi>
+      </math>
+
+      <li>Put-опцион:</li>
+      <math display="block">
+        <mi>P</mi>
+        <mo>=</mo>
+        <mi>K</mi>
+        <mo>&times;</mo>
+        <mmultiscripts>
+          <mi>e</mi>
+          <mn></mn>
+          <mn>-rT</mn>
+        </mmultiscripts>
+        <mo>&times;</mo>
+        <mi>N(</mi>
+        <mmultiscripts>
+          <mi>-d</mi>
+          <mn>2</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mi>)</mi>
+        <mo>&minus;</mo>
+        <mmultiscripts>
+          <mi>S</mi>
+          <mn>0</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mo>&times;</mo>
+        <mi>N(</mi>
+        <mmultiscripts>
+          <mi>-d</mi>
+          <mn>1</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mi>)</mi>
+      </math>
+    </ul>
+
+    <p><strong>Переменные:</strong></p>
+    <p><strong><i>S<sub>0</sub></i></strong> — Текущая цена базового актива.</p>
+    <p><strong><i>K</i></strong> — Страйк-цена опциона.</p>
+    <p><strong><i>T</i></strong> — Время до экспирации (в годах).</p>
+    <p><strong><i>r</i></strong> — Безрисковая процентная ставка (непрерывно начисляемая).</p>
+    <p><strong><i>&sigma;</i></strong> — Волатильность базового актива (стандартное отклонение доходности).</p>
+    <p><strong><i>N(x)</i></strong> — Функция распределения стандартной нормальной случайной величины.</p>
+    <p><strong><i>d<sub>1</sub></i> и <i>d<sub>2</sub></i></strong> — </p>
+
+    <math display="block">
+      <mmultiscripts>
+        <mi>d</mi>
+        <mn>1</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mo>=</mo>
+      <mfrac>
+        <mrow>
+          <mi>ln(</mi>
+          <mmultiscripts>
+            <mi>S</mi>
+            <mn>0</mn>
+            <mn></mn>
+          </mmultiscripts>
+          <mi>/K)</mi>
+          <mo>+</mo>
+          <mi>(r + </mi>
+          <mmultiscripts>
+            <mi>&sigma;</mi>
+            <mn></mn>
+            <mn>2</mn>
+          </mmultiscripts>
+          <mi>/2)T</mi>
+        </mrow>
+        <mrow>
+          <mi>&sigma;</mi>
+          <msqrt>
+            <mi>T</mi>
+          </msqrt>
+        </mrow>
+      </mfrac>
+    </math><br>
+
+    <math display="block">
+      <mmultiscripts>
+        <mi>d</mi>
+        <mn>2</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mo>=</mo>
+      <mmultiscripts>
+        <mi>d</mi>
+        <mn>1</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mo>&minus;</mo>
+      <mi>&sigma;</mi>
+      <msqrt>
+        <mi>T</mi>
+      </msqrt>
+    </math>
+
+    <h3>Основные предположения:</h3>
+    <ol>
+      <li>Цена актива следует геометрическому броуновскому движению с постоянной волатильностью <i>&sigma;</i> и дрейфом
+        <i>&mu;</i>.
+      </li>
+      <li>Отсутствие транзакционных издержек и налогов.</li>
+      <li>Непрерывная торговля и возможность коротких продаж.</li>
+      <li>Постоянная безрисковая ставка (\( r \)) на протяжении срока действия опциона.</li>
+      <li>Отсутствие дивидендов (но модель можно модифицировать для их учета).</li>
+      <li>Опцион европейский (исполнение только в дату экспирации).</li>
+    </ol>
+
+    <h3>Преимущества:</h3>
+    <p>Аналитическое решение, быстрое вычисление.</p>
+    <p>Широко используется на практике для европейских опционов.</p>
+
+    <h3>Недостатки:</h3>
+    <p>Не подходит для американских опционов (досрочное исполнение).</p>
+    <p>Предположение о постоянной волатильности и нормальном распределении не всегда выполняется.</p>
+
+    <h2>Биномиальная модель (Binomial Model)</h2>
+    <h3>Построение дерева:</h3>
+
+    <ol>
+      <li>Делим время до экспирации на n дискретных шагов <i>&Delta;t = T/n</i>.</li>
+      <li>На каждом шаге цена актива может вырасти в u раз или упасть в d раз:</li>
+      <math display="block">
+        <mi>u</mi>
+        <mo>=</mo>
+        <mmultiscripts>
+          <mi>e</mi>
+          <mn></mn>
+          <mn>&sigma;</mn>
+        </mmultiscripts>
+        <mmultiscripts>
+          <mi></mi>
+          <mn></mn>
+          <msqrt>
+            <mn>&Delta;t</mn>
+          </msqrt>
+        </mmultiscripts>
+        <mo>,</mo>
+        <mo></mo>
+        <mi>d</mi>
+        <mo>=</mo>
+        <mi>1/u</mi>
+      </math>
+
+      <li>Вероятность роста в риск-нейтральном мире:</li>
+      <math display="block">
+        <mi>p</mi>
+        <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <mmultiscripts>
+              <mi>e</mi>
+              <mn></mn>
+              <mn>r&Delta;t</mn>
+            </mmultiscripts>
+            <mo>&minus;</mo>
+            <mi>d</mi>
+          </mrow>
+          <mrow>
+            <mi>u</mi>
+            <mo>&minus;</mo>
+            <mi>d</mi>
+          </mrow>
+        </mfrac>
+      </math>
+    </ol>
+
+    <h3>Оценка опциона:</h3>
+    <ol>
+      <li><strong>Конечные узлы (экспирация):</strong></li>
+      <p><strong>Для call:</strong> <i>max (S<sub>T</sub> - K,0)</i></p>
+      <p><strong>Для put:</strong> <i>min (K - S<sub>T</sub>,0)</i></p>
+      <math display="block">
+        <mmultiscripts>
+          <mi>S</mi>
+          <mn>T</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mo>=</mo>
+        <mmultiscripts>
+          <mi>S</mi>
+          <mn>0</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mo>&times;</mo>
+        <mmultiscripts>
+          <mi>u</mi>
+          <mn></mn>
+          <mn>k</mn>
+        </mmultiscripts>
+        <mo>&times;</mo>
+        <mmultiscripts>
+          <mi>d</mi>
+          <mn></mn>
+          <mn>n - k</mn>
+        </mmultiscripts>
+      </math>
+
+      <p>k — число подъемов цены.</p>
+
+      <li><strong>Рекурсивный расчет (обратный проход):</strong></li>
+      <p>На каждом узле стоимость опциона вычисляется как дисконтированная ожидаемая стоимость:</p>
+      <math display="block">
+        <mi>V</mi>
+        <mo>=</mo>
+        <mmultiscripts>
+          <mi>e</mi>
+          <mn></mn>
+          <mn>-r&Delta;t</mn>
+        </mmultiscripts>
+        <mo>&times;</mo>
+        <mi>[p</mi>
+        <mo>&times;</mo>
+        <mmultiscripts>
+          <mi>V</mi>
+          <mn>up</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mo>+</mo>
+        <mi>(1 - p)</mi>
+        <mo>&times;</mo>
+        <mmultiscripts>
+          <mi>V</mi>
+          <mn>down</mn>
+          <mn></mn>
+        </mmultiscripts>
+        <mi>]</mi>
+      </math>
+
+      <p>Для американских опционов сравнивают расчетную стоимость с выплатой при досрочном исполнении.</p>
+    </ol>
+
+    <h3>Преимущества:</h3>
+    <p>Гибкость: подходит для американских опционов, учета дивидендов, изменяющихся параметров.</p>
+    <p>Наглядность: визуализация возможных сценариев.</p>
+
+    <h3>Недостатки:</h3>
+    <p>Вычислительная сложность при большом числе шагов.</p>
+    <p>Требует выбора количества шагов n, что влияет на точность.</p>
+
+    <h3>Связь с Black-Scholes:</h3>
+    <p>При <i>n &rarr;</i> &infin; биномиальная модель сходится к результату Black-Scholes.</p>
+
+    <h3>Сравнение моделей</h3>
+    <table>
+      <tr>
+        <td><strong>Критерий</strong></td>
+        <td><strong>Black-Scholes</strong></td>
+        <td><strong>Binomial Model</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Тип опционов</strong></td>
+        <td>Только европейские</td>
+        <td>Европейские и американские</td>
+      </tr>
+      <tr>
+        <td><strong>Гибкость</strong></td>
+        <td>Ограничена предположениями</td>
+        <td>Высокая (учет дивидендов, досрочного исполнения)</td>
+      </tr>
+      <tr>
+        <td><strong>Скорость расчета</strong></td>
+        <td>Быстро (аналитическая формула)</td>
+        <td>Медленнее (зависит от числа шагов n)</td>
+      </tr>
+      <tr>
+        <td><strong>Точность</strong></td>
+        <td>Точна при выполнении предположений</td>
+        <td>Приближенная, но улучшается с ростом n</td>
+      </tr>
+    </table>
+
+    <h3>Когда какую использовать:</h3>
+    <ul>
+      <li><strong>Black-Scholes:</strong></li>
+      <p>Для быстрой оценки европейских опционов с постоянными параметрами.</p>
+
+      <li><strong>Binomial Model:</strong></li>
+      <p>Для американских опционов, сложных условий (например, переменные дивиденды) или при необходимости визуализации
+        сценариев.</p>
+    </ul>
+
+    <h3>Ключевое понятие:</h3>
+    <p>Обе модели используют risk-neutral valuation — оценка основа</p>
+
+  </article>
+
+</body>
+
+</html>

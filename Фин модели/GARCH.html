@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Модель GARCH</title>
+  <link rel="icon" href="../images\Логотип.png" type="image/png">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../script.js"></script>
+</head>
+
+<body>
+  <header>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+
+      <style>
+        a:hover {
+          color: white;
+        }
+
+        body.dark-theme a:hover {
+          color: black;
+        }
+      </style>
+
+      <a class="btn-m">☰Меню</a>
+
+      <a href="../login.html" class="btn-login">Вход</a>
+
+    </div>
+    <div id="menu" class="side-menu">
+      <ul>
+        <a href="../index.html">Превью</a>
+        <h2>Обучение:</h2>
+        <a href="../Что такое оценка.html">Что такое оценка</a>
+        <a href="../Оценка бизнеса.html">Оценка бизнеса</a>
+        <a href="../Оценка стартапа.html">Оценка стартапа</a>
+        <a href="../Что такое фин модели.html">Что такое финансовые модели</a>
+        <a href="../Существующие фин модели.html">Финансовые модели</a>
+        <h2>Инструменты:</h2>
+        <a href="../Вычислитель бизнеса.html">Вычислитель бизнеса</a>
+        <a href="../Вычислитель стартапа.html">Вычислитель стартапа</a>
+        <h2></h2><!--При прокрутки слова не были наполовину видны-->
+        <h2></h2><!--При прокрутки слова не были наполовину видны-->
+      </ul>
+    </div>
+
+    <div class="theme-switch">Тема
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </header>
+
+  <article>
+    <h1>Модель GARCH (Generalized Autoregressive Conditional Heteroskedasticity)</h1>
+    <h2>Кратко</h2>
+    <p>Это статистическая модель, которая часто используется для прогнозирования волатильности финансовых рынков. Ее
+      применяют при анализе рисков и ценообразовании деривативов.</p>
+    <h2>Подробно</h2>
+
+    <p>Модель GARCH (Generalized Autoregressive Conditional Heteroskedasticity) — это статистический инструмент для
+      анализа временных рядов с изменяющейся во времени волатильностью (гетероскедастичностью). Она широко применяется в
+      финансах для прогнозирования рисков, оценки волатильности активов, расчета Value at Risk (VaR) и ценообразования
+      опционов.</p>
+
+    <h3>Математическая форма</h3>
+    <p>Модель GARCH(p, q) описывает условную дисперсию <i>&sigma;<sub>t</sub><sup>2</sup></i>в момент времени t.</p>
+    <math display="block">
+      <mmultiscripts>
+        <mi>&sigma;</mi>
+        <mn>t</mn>
+        <mn>2</mn>
+      </mmultiscripts>
+      <mo>=</mo>
+      <mmultiscripts>
+        <mi>&alpha;</mi>
+        <mn>0</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mo>+</mo>
+      <munderover>
+        <mo>∑</mo>
+        <mrow>
+          <mi>i</mi>
+          <mo>=</mo>
+          <mi>1</mi>
+        </mrow>
+        <mi>q</mi>
+      </munderover>
+      <mmultiscripts>
+        <mi>&alpha;</mi>
+        <mn>i</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mmultiscripts>
+        <mi>&epsilon;</mi>
+        <mn>t - i</mn>
+        <mn>2</mn>
+      </mmultiscripts>
+      <mo>+</mo>
+      <munderover>
+        <mo>∑</mo>
+        <mrow>
+          <mi>j</mi>
+          <mo>=</mo>
+          <mi>1</mi>
+        </mrow>
+        <mi>p</mi>
+      </munderover>
+      <mmultiscripts>
+        <mi>&beta;</mi>
+        <mn>j</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mmultiscripts>
+        <mi>&sigma;</mi>
+        <mn>t - j</mn>
+        <mn>2</mn>
+      </mmultiscripts>
+    </math>
+
+    <p><strong><i>&alpha;<sub>0</sub></i> &gt; 0</strong> — константа</p>
+    <p><strong><i>&alpha;<sub>i</sub></i> &ge; 0</strong> — коэффициенты при лагах квадратов ошибок <i>&epsilon;<sub>t -
+          i<sup>2</sup></sub></i></p>
+    <p><strong><i>&beta;<sub>j</sub></i> &ge; 0</strong> — коэффициенты при лагах условной дисперсии <i>&sigma;<sub>t -
+          j<sup>2</sup></sub></i></p>
+
+    <p>Условие стационарности:</p>
+    <math display="block">
+      <munderover>
+        <mo>∑</mo>
+        <mrow>
+          <mi>i</mi>
+          <mo>=</mo>
+          <mi>1</mi>
+        </mrow>
+        <mi>q</mi>
+      </munderover>
+      <mmultiscripts>
+        <mi>&alpha;</mi>
+        <mn>i</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mo>+</mo>
+      <munderover>
+        <mo>∑</mo>
+        <mrow>
+          <mi>j</mi>
+          <mo>=</mo>
+          <mi>1</mi>
+        </mrow>
+        <mi>p</mi>
+      </munderover>
+      <mmultiscripts>
+        <mi>&beta;</mi>
+        <mn>j</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mo>&#60;</mo>
+      <mi>1</mi>
+    </math>
+
+    <h3>Интерпретация коэффициентов</h3>
+    <ul>
+      <li><strong><i>&Alpha;<sub>i</sub></i>:</strong></li>
+      <p>Чувствительность к прошлым шокам (например, большие <i>&Alpha;<sub>1</sub></i> означает, что волатильность
+        сильно реагирует на недавние события).</p>
+
+      <li><strong><i>&beta;<sub>j</sub></i>:</strong></li>
+      <p>Инерция волатильности (высокие значения указывают на долгосрочную память).</p>
+
+      <li><strong><i>&Alpha;<sub>i</sub></i> + <i>&beta;<sub>j</sub></i>:</strong></li>
+      <p>Скорость затухания эффекта шоков. Близость суммы к 1 означает медленное затухание.</p>
+    </ul>
+
+    <h3>Оценка параметров</h3>
+    <p>Параметры модели оцениваются методом <strong>максимального правдоподобия</strong> (MLE). Предполагается, что
+      ошибки <i>&epsilon;<sub>t</sub></i> следуют нормальному распределению:</p>
+
+    <math display="block">
+      <mmultiscripts>
+        <mi>&epsilon;</mi>
+        <mn>t</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mo>=</mo>
+      <mmultiscripts>
+        <mi>&sigma;</mi>
+        <mn>t</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mo>&times;</mo>
+      <mmultiscripts>
+        <mi>z</mi>
+        <mn>t</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mo>,</mo>
+      <mo></mo>
+      <mmultiscripts>
+        <mi>z</mi>
+        <mn>t</mn>
+        <mn></mn>
+      </mmultiscripts>
+      <mo>&sim;</mo>
+      <mi>N(0,1)</mi>
+    </math>
+
+    <p>На практике часто используют распределение Стьюдента для учета "тяжелых хвостов" финансовых данных.</p>
+
+    <h3>Расширения GARCH</h3>
+    <ul>
+      <li><strong>EGARCH (Exponential GARCH):</strong></li>
+      <p>Учитывает асимметричные эффекты (например, негативные шоки увеличивают волатильность сильнее, чем позитивные).
+      </p>
+
+      <li><strong>TGARCH (Threshold GARCH):</strong></li>
+      <p>Разделяет влияние положительных и отрицательных шоков.</p>
+
+      <li><strong>GARCH-M (GARCH-in-Mean):</strong></li>
+      <p>Включает условную дисперсию в уравнение среднего (для анализа связи риска и доходности).</p>
+    </ul>
+
+    <h3>Применение</h3>
+    <p>Прогнозирование волатильности (например, для опционов).</p>
+    <p>Оценка рисков (VaR).</p>
+    <p>Анализ финансовых кризисов (выявление кластеров волатильности).</p>
+    <p>Калибровка торговых стратегий.</p>
+
+    <h3>Диагностика модели</h3>
+    <p><strong>Тест Ли-Бокса:</strong> Проверка остатков на автокорреляцию.</p>
+    <p><strong>ARCH-LM тест:</strong> Выявление остаточной гетероскедастичности. </p>
+    <p><strong>Аналит Q-Q графиков:</strong> Проверка соответствия распределения остатков предполагаемому (нормальному
+      или Стьюдента).</p>
+
+    <h3>Преимущества</h3>
+    <ul>
+      <li>Эффективно моделирует кластеры волатильности.</li>
+      <li>Требует меньше параметров, чем ARCH (за счет включения лагов дисперсии).</li>
+      <li>Гибкость за счет расширений (EGARCH, TGARCH).</li>
+    </ul>
+
+    <h3>Недостатки</h3>
+    <ul>
+      <li>Сложность оценки параметров (риск переобучения).</li>
+      <li>Чувствительность к выбору распределения ошибок.</li>
+      <li>Не учитывает структурные изменения (например, сдвиги в режимах волатильности).</li>
+    </ul>
+
+    <h3>Пример:</h3>
+    <p>Для ряда доходностей индекса S&P 500 модель GARCH(1,1) может иметь вид:</p>
+    <math display="block">
+      <mmultiscripts>
+        <mi>&sigma;</mi>
+        <mn>t</mn>
+        <mn>2</mn>
+      </mmultiscripts>
+      <mo>=</mo>
+      <mi>0.0001</mi>
+      <mo>+</mo>
+      <mi>0.1</mi>
+      <mmultiscripts>
+        <mi>&epsilon;</mi>
+        <mn>t - 1</mn>
+        <mn>2</mn>
+      </mmultiscripts>
+      <mo>+</mo>
+      <mi>0.85</mi>
+      <mmultiscripts>
+        <mi>&sigma;</mi>
+        <mn>t - 1</mn>
+        <mn>2</mn>
+      </mmultiscripts>
+    </math>
+
+    <p>Здесь волатильность быстро реагирует на шоки <i>&alpha;<sub>1</sub> = 0.1</i> и обладает высокой инерцией
+      <i>&beta;<sub>1</sub> = 0.85</i>.
+    </p>
+
+    <h3>Заключение</h3>
+    <p>GARCH остается ключевым инструментом в анализе финансовой волатильности, несмотря на развитие более сложных
+      моделей. Её понимание важно для работы с рисками и прогнозирования на финансовых рынках.</p>
+
+  </article>
+
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вычислитель бизнеса</title>
+  <meta name="description" content="Краткое описание страницы.">
+  <link rel="icon" href="images\Логотип.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="Бизнес.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <header>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+
+      <style>
+        a:hover {
+          color: white;
+        }
+
+        body.dark-theme a:hover {
+          color: black;
+        }
+      </style>
+
+      <a class="btn-m">☰Меню</a>
+
+      <a href="login.html" class="btn-login">Вход</a>
+
+    </div>
+    <div id="menu" class="side-menu">
+      <ul>
+        <a href="index.html">Превью</a>
+        <h2>Обучение:</h2>
+        <a href="Что такое оценка.html">Что такое оценка</a>
+        <a href="Оценка бизнеса.html">Оценка бизнеса</a>
+        <a href="Оценка стартапа.html">Оценка стартапа</a>
+        <a href="Что такое фин модели.html">Что такое финансовые модели</a>
+        <a href="Существующие фин модели.html">Финансовые модели</a>
+        <h2>Инструменты:</h2>
+        <a href="Вычислитель бизнеса.html" class="active">Вычислитель бизнеса</a>
+        <a href="Вычислитель стартапа.html">Вычислитель стартапа</a>
+        <h2></h2><!--При прокрутки слова не были наполовину видны-->
+        <h2></h2><!--При прокрутки слова не были наполовину видны-->
+      </ul>
+    </div>
+
+    <div class="theme-switch">Тема
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </header>
+  <article>
+    <h1>Оценка стоимости бизнеса</h1><br>
+
+    <h2>Затратный подход</h2><br>
+    <label>Введите всю сумму ваших активов: <input type="number" id="assets" value="0" required></label>
+    <label>Введите всю сумму ваших пассивов: <input type="number" id="liabilities" value="0" required></label>
+
+    <h2>Доходный подход</h2>
+    <h4>Спрогнозируйте денежный поток на 3 года</h4>
+    <h3>Операционная деятельность</h3>
+    <label>Операционные доходы 1 года: <input type="number" id="operationincome1" value="0" required></label>
+    <label>Операционные расходы 1 года: <input type="number" id="operationexpenses1" value="0" required></label>
+    <label>Операционные доходы 2 года: <input type="number" id="operationincome2" value="0" required></label>
+    <label>Операционные расходы 2 года: <input type="number" id="operationexpenses2" value="0" required></label>
+    <label>Операционные доходы 3 года: <input type="number" id="operationincome3" value="0" required></label>
+    <label>Операционные расходы 3 года: <input type="number" id="operationexpenses3" value="0" required></label>
+
+    <h3>Инвестиционная деятельность</h3>
+    <label>Инвестиционные доходы 1 года: <input type="number" id="investmentincome1" value="0" required></label>
+    <label>Инвестиционные расходы 1 года: <input type="number" id="investmentexpenses1" value="0" required></label>
+    <label>Инвестиционные доходы 2 года: <input type="number" id="investmentincome2" value="0" required></label>
+    <label>Инвестиционные расходы 2 года: <input type="number" id="investmentexpenses2" value="0" required></label>
+    <label>Инвестиционные доходы 3 года: <input type="number" id="investmentincome3" value="0" required></label>
+    <label>Инвестиционные расходы 3 года: <input type="number" id="investmentexpenses3" value="0" required></label>
+
+    <h3>Финансовая деятельность</h3>
+    <label>Финансовые доходы 1 года: <input type="number" id="financeincome1" value="0" required></label>
+    <label>Финансовые расходы 1 год: <input type="number" id="financeexpenses1" value="0" required></label>
+    <label>Финансовые доходы 2 года: <input type="number" id="financeincome2" value="0" required></label>
+    <label>Финансовые расходы 2 года: <input type="number" id="financeexpenses2" value="0" required></label>
+    <label>Финансовые доходы 3 года: <input type="number" id="financeincome3" value="0" required></label>
+    <label>Финансовые расходы 3 года: <input type="number" id="financeexpenses3" value="0" required></label>
+
+    <h3>Ставка дисконтирования</h3>
+    <label>Процентная ставка по банковскому вкладу на 3 года: <input type="number" id="depositrate" value="0"
+        required></label>
+    <label>Команда и их квалификация (0-3%): <input type="number" id="projectteam" value="0" required></label>
+    <label>Конкуренты (0-5%): <input type="number" id="companysize" value="0" required></label>
+    <label>Финансирование (0-4%): <input type="number" id="financialstructure" value="0" required></label>
+    <label>Зависимость от товара или города (0-3%): <input type="number" id="productvariety" value="0" required></label>
+    <label>Зависимость от поставщиков (0-3%): <input type="number" id="dependenceonsuppliers" value="0"
+        required></label>
+    <label>Предсказуемость выручки (0-3%): <input type="number" id="revenuepredictability" value="0" required></label>
+
+    <h2>Сравнительные подхрод</h2>
+    <h4>Информацию о аналогах можно найти в сервисе <a href="https://pb.nalog.ru/">прозачный бизнес</a></h4>
+
+    <label>Введите доход вашего бизнеса в этом году: <input type="number" id="income0" value="0" required></label>
+
+    <h3>Год назад</h3>
+    <label>Доход компании аналога №1: <input type="number" id="assets1_1" value="1" required></label>
+    <label>Расход компании аналога №1: <input type="number" id="liabilities1_1" value="0" required></label>
+    <label>Доход компании аналога №2: <input type="number" id="assets2_1" value="1" required></label>
+    <label>Расход компании аналога №2: <input type="number" id="liabilities2_1" value="0" required></label>
+    <label>Доход компании аналога №3: <input type="number" id="assets3_1" value="1" required></label>
+    <label>Расход компании аналога №3: <input type="number" id="liabilities3_1" value="0" required></label>
+
+    <h3>Два года назад</h3>
+    <label>Доход компании аналога №1: <input type="number" id="assets1_2" value="0" required></label>
+    <label>Расход компании аналога №1: <input type="number" id="liabilities1_2" value="0" required></label>
+    <label>Доход компании аналога №2: <input type="number" id="assets2_2" value="0" required></label>
+    <label>Расход компании аналога №2: <input type="number" id="liabilities2_2" value="0" required></label>
+    <label>Доход компании аналога №3: <input type="number" id="assets3_2" value="0" required></label>
+    <label>Расход компании аналога №3: <input type="number" id="liabilities3_2" value="0" required></label>
+
+    <h3>Три года назад</h3>
+    <label>Доход компании аналога №1: <input type="number" id="assets1_3" value="0" required></label>
+    <label>Расход компании аналога №1: <input type="number" id="liabilities1_3" value="0" required></label>
+    <label>Доход компании аналога №2: <input type="number" id="assets2_3" value="0" required></label>
+    <label>Расход компании аналога №2: <input type="number" id="liabilities2_3" value="0" required></label>
+    <label>Доход компании аналога №3: <input type="number" id="assets3_3" value="0" required></label>
+    <label>Расход компании аналога №3: <input type="number" id="liabilities3_3" value="0" required></label>
+
+    <h3>Ставка дисконтирования для аналогов</h3>
+    <h4>Как найти ставку дисконтирования показано выше</h4>
+    <label>Ставка дисконтирования компании аналога №1: <input type="number" id="discount1" value="1" required></label>
+    <label>Ставка дисконтирования компании аналога №2: <input type="number" id="discount2" value="1" required></label>
+    <label>Ставка дисконтирования компании аналога №3: <input type="number" id="discount3" value="1" required></label>
+
+    <h2>Удельные вес</h2>
+    <h4>Сумма удельного веса равна 100%</h4>
+    <h4>Подумайте на сколько процентов данные подходы подходят вашему бизнесу.</h4>
+    <h4>Зависимость удельного веса от подхода можно посмотреть на странице <a href="Оценка бизнеса.html">Оценка бизнеса</a></h4>
+    <label>Удельный вес затратного подхода: <input type="number" id="weight1" value="0" required></label>
+    <label>Удельный вес доходного подхода: <input type="number" id="weight2" value="0" required></label>
+    <label>Удельный вес сравнительного подхода: <input type="number" id="weight3" value="0" required></label>
+
+    <button onclick="calculateBusinessValue()">Подсчитать стоимость бизнеса</button>
+    <div id="result"></div>
+  </article>
+</body>
+
+</html>

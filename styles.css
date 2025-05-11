@@ -1,0 +1,529 @@
+/*Базовые стили*/
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #18181b;
+    color: #fff;
+    line-height: 1.6;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+body.dark-theme {
+    background-color: #edede9;
+    color: #000;
+}
+
+main {
+    padding: 2rem;
+    text-align: center;
+}
+
+h1,
+h2 {
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+p {
+    text-indent: 35px;
+    padding: 0.5px 0;
+}
+
+math {
+    font-size: 20px;
+}
+
+a {
+    color: #0984e3;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #0652DD;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+ul,
+li,
+ol {
+    font-size: 17px;
+}
+
+
+/*Шапка*/
+header {
+    background-color: black;
+    color: white;
+    display: flex;
+    padding: 30px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+body.dark-theme header {
+    background-color: #e3d5ca;
+    color: black;
+}
+
+/*Кнопки*/
+button {
+    background-color: #0652DD;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    display: block;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.social-login a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #ccc;
+    font-size: 14px;
+}
+
+body.dark-theme .social-login a {
+    color: #444;
+}
+
+.social-login a:hover {
+    text-decoration: underline;
+}
+
+.menu-btn {
+    position: fixed;
+    top: 11px;
+    left: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.btn-m,
+.btn-login,
+.btn-settings {
+    padding: 8px 12px;
+    background-color: #18181b;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn-m:hover,
+.btn-login:hover,
+.btn-settings:hover {
+    background-color: #18181b;
+    color: white;
+}
+
+body.dark-theme .btn-m,
+body.dark-theme .btn-login,
+body.dark-theme .btn-settings {
+    background-color: #d5bdaf;
+    color: black;
+}
+
+body.dark-theme .btn-m:hover,
+body.dark-theme .btn-login:hover,
+body.dark-theme .btn-settings:hover {
+    background-color: #c9ada7;
+    color: black;
+}
+
+button {
+    background-color: #0652DD;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    display: block;
+    width: 100%;
+}
+
+/*Переключатель темы*/
+.theme-switch {
+    font-size: 24px;
+    position: absolute;
+    top: 11px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    top: 6px;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+input:checked+.slider {
+    background-color: #2196f3;
+}
+
+input:checked+.slider:before {
+    transform: translateX(24px);
+}
+
+/*Боковое меню*/
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 250px;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #1e1e25;
+    color: white;
+    padding-top: 44px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.2s, left 0.2s;
+    scrollbar-width: thin;
+    scrollbar-color: #606060 #1e1e25;
+}
+
+body.dark-theme .side-menu {
+    background-color: #f5ebe0;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu li {
+    margin: 20px 0;
+}
+
+.side-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: block;
+    padding: 7px;
+    padding-left: 20px;
+    transition: background-color 0.2s;
+}
+
+body.dark-theme .side-menu a {
+    color: black;
+}
+
+.side-menu h2 {
+    padding: 5px;
+    padding-left: 10px;
+}
+
+body.dark-theme .side-menu h2 {
+    color: black;
+}
+
+.side-menu a:hover {
+    background-color: #26232b;
+}
+
+body.dark-theme .side-menu a:hover {
+    background-color: #e0e0e0;
+}
+
+body.menu-open .side-menu {
+    left: 0;
+}
+
+/*Контексное меню*/
+.form-container {
+    max-width: 400px;
+    background: #27272a;
+    margin: 100px auto;
+    padding: 30px;
+    padding-left: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme .form-container {
+    background: #f5f5f5;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+form input[type="email"],
+form input[type="password"],
+form input[type="text"] {
+    color: white;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #1e1e25;
+    background-color: #1e1e25;
+    border-radius: 5px;
+}
+
+body.dark-theme form input[type="email"],
+body.dark-theme form input[type="password"],
+body.dark-theme form input[type="text"] {
+    color: black;
+    border: 1px solid white;
+    background-color: white;
+}
+
+article {
+    background-color: #27272a;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 10px auto;
+    overflow-x: auto;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+body.dark-theme article {
+    background-color: #f5f5f5;
+}
+
+.services {
+    max-width: 1050px;
+    margin: auto;
+}
+
+.services h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.services p {
+    font-size: 20px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 26px;
+    margin-top: 30px;
+}
+
+.service-item {
+    text-align: center;
+    padding: 20px;
+    background-color: #27272a;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+body.dark-theme .service-item {
+    background-color: #d6ccc2;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+}
+
+.service-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+body.dark-theme .service-item h3 {
+    color: black;
+}
+
+/*Таблицы*/
+table {
+    margin: 0 auto;
+    width: 100%;
+    border-top: 7px solid rgb(0, 0, 0);
+    border-collapse: collapse;
+    text-align: left;
+    border: 1px solid #dddddd;
+}
+
+td,
+th {
+    padding: 3px;
+    border: 2px solid rgb(0, 0, 0);
+    word-wrap: break-word;
+}
+
+/* Стили для формы */
+label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: white;
+}
+
+body.dark-theme label {
+    color: black;
+}
+
+input[type="number"] {
+    padding: 8px;
+    border: 1px solid #1e1e25;
+    background-color: #1e1e25;
+    border-radius: 5px;
+    width: calc(100% - 20px);
+    margin-top: 5px;
+    font-size: 1rem;
+    color: white;
+}
+
+input[type="number"]:focus {
+    border-color: #0984e3;
+    outline: none;
+    box-shadow: 0 0 5px rgba(9, 132, 227, 0.5);
+}
+
+body.dark-theme input[type="number"] {
+    border: 1px solid white;
+    background-color: white;
+    color: black;
+}
+
+/* Вывод результатов */
+#result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #1e1e25;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #1e1e25;
+    border-radius: 5px;
+    text-align: left;
+}
+
+body.dark-theme #result {
+    background-color: #f6e58d;
+    color: black;
+    border: 1px solid #f9ca24;
+}
+
+/* Для улучшения стиля в браузерах WebKit (Chrome, Safari) */
+.side-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.side-menu::-webkit-scrollbar-track {
+    background: #1e1e25;
+}
+
+.side-menu::-webkit-scrollbar-thumb {
+    background-color: #606060;
+    border-radius: 4px;
+}
+
+.side-menu a.active {
+    background-color: #606060;
+    color: white;
+}
+
+body.dark-theme .side-menu a.active {
+    background-color: #c5c6c7;
+}
+
+body.menu-open .side-menu {
+    left: 0;
+}
+
+/*Адаптивный дизайн*/
+@media screen and (max-width: 768px) {
+
+    td,
+    th {
+        font-size: 11px;
+    }
+
+    table {
+        width: auto;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        text-indent: 20px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    td,
+    th {
+        font-size: 10px;
+    }
+
+    table {
+        width: auto;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        text-indent: 20px;
+    }
+}

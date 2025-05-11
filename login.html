@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход</title>
+  <link rel="icon" href="images\Логотип.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <header>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+
+      <style>
+        a:hover {
+          color: white;
+        }
+
+        body.dark-theme a:hover {
+          color: black;
+        }
+      </style>
+
+      <a class="btn-m">☰Меню</a>
+
+      <a href="login.html" class="btn-login">Вход</a>
+
+    </div>
+    <div id="menu" class="side-menu">
+      <ul>
+        <a href="index.html">Превью</a>
+        <h2>Обучение:</h2>
+        <a href="Что такое оценка.html">Что такое оценка</a>
+        <a href="Оценка бизнеса.html">Оценка бизнеса</a>
+        <a href="Оценка стартапа.html">Оценка стартапа</a>
+        <a href="Что такое фин модели.html">Что такое финансовые модели</a>
+        <a href="Существующие фин модели.html">Финансовые модели</a>
+        <h2>Инструменты:</h2>
+        <a href="Вычислитель бизнеса.html">Вычислитель бизнеса</a>
+        <a href="Вычислитель стартапа.html">Вычислитель стартапа</a>
+        <h2></h2><!--При прокрутки слова не были наполовину видны-->
+        <h2></h2><!--При прокрутки слова не были наполовину видны-->
+      </ul>
+    </div>
+
+    <div class="theme-switch">Тема
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </header>
+
+  <style>
+    button {
+      width: 105%;
+    }
+
+    p {
+      text-indent: 0px;
+    }
+  </style>
+  <div class="form-container">
+    <h1>Вход</h1>
+    <form action="dashboard.html" method="post">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Пароль</label>
+      <input type="password" id="password" name="password" required>
+
+      <div class="captcha">
+        <input type="checkbox" required>
+        <span>Я не робот</span>
+      </div>
+
+      <button type="submit">Войти</button>
+    </form>
+    <p><a href="#">Забыли пароль?</a></p>
+    <p>Или войдите с помощью других сервисов:</p>
+    <div class="social-login">
+      <a href="#">VK</a>
+      <a href="#">Google</a>
+      <a href="#">Facebook</a>
+      <a href="#">Яндекс</a>
+    </div>
+    <style>
+      p {
+        font-size: 20px;
+      }
+    </style>
+    <p><strong>Ещё нет аккаунта?</strong> <a href="register.html">Зарегистрируйтесь</a></p>
+  </div>
+</body>
+
+</html>

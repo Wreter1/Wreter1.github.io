@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Комплексная оценка стартапов и бизнесов</title>
+    <meta name="description" content="Краткое описание страницы.">
+    <link rel="icon" href="images\Логотип.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <style>
+        body.dark-theme {
+            background-color: white;
+            color: #000;
+        }
+    </style>
+    <header>
+
+        <div class="menu-btn" onclick="toggleMenu()">
+
+            <style>
+                a:hover {
+                    color: white;
+                }
+
+                body.dark-theme a:hover {
+                    color: black;
+                }
+            </style>
+
+            <a class="btn-m">☰Меню</a>
+
+            <a href="login.html" class="btn-login">Вход</a>
+
+        </div>
+        <div id="menu" class="side-menu">
+            <ul>
+                <a href="index.html" class="active">Превью</a>
+                <h2>Обучение:</h2>
+                <a href="Что такое оценка.html">Что такое оценка</a>
+                <a href="Оценка бизнеса.html">Оценка бизнеса</a>
+                <a href="Оценка стартапа.html">Оценка стартапа</a>
+                <a href="Что такое фин модели.html">Что такое финансовые модели</a>
+                <a href="Существующие фин модели.html">Финансовые модели</a>
+                <h2>Инструменты:</h2>
+                <a href="Вычислитель бизнеса.html">Вычислитель бизнеса</a>
+                <a href="Вычислитель стартапа.html">Вычислитель стартапа</a>
+                <h2></h2><!--При прокрутки слова не были наполовину видны-->
+                <h2></h2><!--При прокрутки слова не были наполовину видны-->
+            </ul>
+        </div>
+
+        <div class="theme-switch">Тема
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </header>
+
+    <main>
+        <style>
+            a {
+                text-decoration: none;
+            }
+        </style>
+        <div class="services">
+            <h1>Услуги</h1>
+            <p>Этот сайт служит, как платформа-справочник и вспомогательным инструментом для стартапов и предприятий
+                любых размеров. Сайт делает полный анализ автоматически.</p>
+            <div class="services-grid">
+                <div class="service-item"><a href="Что такое фин модели.html">
+                        <img src="images\16.png" alt="Иконка">
+                        <h3>Большое разнообразие<br>финансовых моделей</h3>
+                    </a>
+                </div>
+                <div class="service-item"><a href="Оценка бизнеса.html">
+                        <img src="images\15.png" alt="Иконка">
+                        <h3>Рекомендации по увеличению<br>эффективности и решения<br>проблем предприятия</h3>
+                    </a>
+                </div>
+                <div class="service-item"><a href="Существующие фин модели.html">
+                        <img src="images\14.png" alt="Иконка">
+                        <h3>Обучающий контент по всем<br>моделям, которые есть на сайте</h3>
+                    </a>
+                </div>
+                <div class="service-item"><a href="Вычислитель бизнеса.html">
+                        <img src="images\image.png" alt="Иконка">
+                        <h3>Подсчёт стоимости стартапов<br>и бизнесов</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
